@@ -14,7 +14,7 @@ Synopsis:       Binding to the Cairo library with OpenGL
 Description:    
 Category:       Graphics
 Tested-With:    GHC == 7.0.4, GHC == 7.2.2, GHC == 7.4.1
-extra-source-files: cairo-gtk2hs.h
+extra-source-files: cairo-gl-gtk2hs.h
                     SetupWrapper.hs 
                     SetupMain.hs
                     Gtk2HsSetup.hs
@@ -22,12 +22,17 @@ extra-source-files: cairo-gtk2hs.h
 				
 Library
         build-depends:  base >= 4 && < 5,
-                        bytestring, mtl, array, EGLRaw 
-        build-tools:    gtk2hsC2hs >= 0.13.5
+                        bytestring, 
+                        mtl, 
+                        array, 
+                        EGLRaw, 
+                        cairo 
+        build-tools:    gtk2hsC2hs >= 0.13.5,
+                        gtk2hsTypeGen
         exposed-modules:  Graphics.Rendering.Cairo.GL
                           Graphics.Rendering.Cairo.GL.Types
         other-modules:
         extensions:     ForeignFunctionInterface
         Include-dirs: .
-        x-c2hs-Header:  cairo-gtk2hs.h
+        x-c2hs-Header: cairo-gl-gtk2hs.h  
         pkgconfig-depends: cairo >= 1.2.0, cairo-gl
