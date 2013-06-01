@@ -19,3 +19,9 @@ import Foreign.C
 
 {#pointer *cairo_device_t as Device foreign newtype #}
 withDevice (Device x) = withForeignPtr x 
+
+mkDevice :: Ptr Device -> IO Device
+mkDevice devicePtr = do
+  deviceForeignPtr <- newForeignPtr_ devicePtr
+  return (Device deviceForeignPtr)
+
