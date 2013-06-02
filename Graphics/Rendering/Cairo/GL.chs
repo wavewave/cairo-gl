@@ -15,7 +15,7 @@ module Graphics.Rendering.Cairo.GL where
 
 {#import Graphics.Rendering.Cairo.Types #} (Content, mkSurface, withSurface, Surface(..), cFromEnum,cIntConv, cFromBool)
 {#import Graphics.Rendering.Cairo.GL.Types #}
-{#import Graphics.Rendering.EGL.Raw.Types #}
+{#import Graphics.Rendering.EGL.Raw.Types #} (EGLSurface, withEGLSurface, EGLContext, withEGLContext, EGLDisplay, withEGLDisplay ) 
 
 import Foreign
 import Foreign.C
